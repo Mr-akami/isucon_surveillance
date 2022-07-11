@@ -1,6 +1,9 @@
-FROM prom/prometheus
-ADD prometheus.yml /etc/prometheus/
-Now build and run it:
+# prometheusのdockerイメージ
 
-docker build -t my-prometheus .
-docker run -p 9090:9090 my-prometheus
+## 起動方法
+docker-compose up -d
+
+## 設定
+### exporterのIPアドレスの指定方法
+prometheus.ymlのtargetsの項目を編集する。  
+デフォルトではlocalhostになっているので、本番ではソフト実行サーバのIPアドレスをしているすること。
